@@ -2,7 +2,7 @@
 
 This repository contains the code for our ICML 2025 paper "Unlocking the Power of SAM 2 for Few-Shot Segmentation", where we incorporate SAM 2 for Few-Shot Segmentation.
 
-> **Abstract**: *Few-Shot Segmentation (FSS) aims to learn class-agnostic segmentation on few base classes to segment arbitrary novel classes, but at the risk of overfitting. To address this, some methods use the well-learned knowledge of foundation models (e.g., SAM) to simplify the learning process. Recently, SAM 2 has extended SAM by supporting video segmentation, whose class-agnostic matching ability is useful to FSS. A simple idea is to encode support foreground (FG) features as memory, with which query FG features are matched and fused. Unfortunately, the FG objects in different frames of SAM 2's video data are always the same identity, while those in FSS are different identities, i.e., the matching step is incompatible. Therefore, we design Pseudo Prompt Generator to encode pseudo query memory, matching with query features in a compatible way. However, the memories can never be as accurate as the real ones, i.e., they are likely to contain incomplete query FG, but some unexpected query background (BG) features, leading to wrong segmentation. Hence, we further design Iterative Memory Refinement to fuse more query FG features into the memory, and devise a Support-Calibrated Memory Attention to suppress the unexpected query BG features in memory during matching. Extensive experiments have been conducted on PASCAL-5<sup>i</sup> and COCO-20<sup>i</sup> to validate the effectiveness of our design, e.g., the 1-shot mIoU can be 4.2% better than the best baseline.*
+> **Abstract**: *Few-Shot Segmentation (FSS) aims to learn class-agnostic segmentation on few base classes to segment arbitrary novel classes, but at the risk of overfitting. To address this, some methods use the well-learned knowledge of foundation models (e.g., SAM) to simplify the learning process. Recently, SAM 2 has extended SAM by supporting video segmentation, whose class-agnostic matching ability is useful to FSS. A simple idea is to encode support foreground (FG) features as memory, with which query FG features are matched and fused. Unfortunately, the FG objects in different frames of SAM 2's video data are always the same identity, while those in FSS are different identities, i.e., the matching step is incompatible. Therefore, we design Pseudo Prompt Generator to encode pseudo query memory, matching with query features in a compatible way. However, the memories can never be as accurate as the real ones, i.e., they are likely to contain incomplete query FG, and some unexpected query background (BG) features, leading to wrong segmentation. Hence, we further design Iterative Memory Refinement to fuse more query FG features into the memory, and devise a Support-Calibrated Memory Attention to suppress the unexpected query BG features in memory during matching. Extensive experiments have been conducted on PASCAL-5<sup>i</sup> and COCO-20<sup>i</sup> to validate the effectiveness of our design, e.g., the 1-shot mIoU can be 4.2% better than the best baseline.*
 
 ## Dependencies
 
@@ -19,7 +19,7 @@ This repository contains the code for our ICML 2025 paper "Unlocking the Power o
 - PASCAL-5<sup>i</sup>:  [VOC2012](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/) + [SBD](http://home.bharathh.info/pubs/codes/SBD/download.html)
 - COCO-20<sup>i</sup>:  [COCO2014](https://cocodataset.org/#download)
 
-You can download the pre-processed PASCAL-5<sup>i</sup> dataset [here](https://drive.google.com/file/d/1Pt6ZDVcOw7iDzU2sP-Rxz_Us-lGx3QLP/view?usp=sharing) (COCO-20<sup>i</sup> is quite large, we will provide it upon paper acceptance), and extract it into `data/` folder. Then, you need to create a symbolic link to the `pascal/VOCdevkit` data folder as follows:
+You can download the pre-processed PASCAL-5<sup>i</sup> and COCO-20<sup>i</sup> datasets [here](https://entuedu-my.sharepoint.com/:f:/g/personal/qianxion001_e_ntu_edu_sg/ErEg1GJF6ldCt1vh00MLYYwBapLiCIbd-VgbPAgCjBb_TQ?e=ibJ4DM), and extract them into `data/` folder. Then, you need to create a symbolic link to the `pascal/VOCdevkit` data folder as follows:
 ```
 > ln -s <absolute_path>/data/pascal/VOCdevkit <absolute_path>/data/VOCdevkit2012
 ```
@@ -44,7 +44,7 @@ The directory structure is:
 ## Models
 
 - Download the trained SAM 2 models (`sam2_hiera_small`, `sam2_hiera_base_plus`, `sam2_hiera_large`) from [the official SAM 2 repository](https://github.com/facebookresearch/sam2?tab=readme-ov-file#sam-2-checkpoints) and put them into the `pretrained/` directory.
-- Download [exp.tar.gz](https://drive.google.com/file/d/115UqM0cMGZtBqlIEb5Ma0aS2fkcDP8Sl/view?usp=sharing) to obtain trained FSSAM for PASCAL-5<sup>i</sup>. Note that we only provide 1-shot models trained on PASCAL-5<sup>i</sup>, and will provide other models upon paper acceptance.
+- Download [exp.tar.gz](https://entuedu-my.sharepoint.com/:u:/g/personal/qianxion001_e_ntu_edu_sg/ERD85t8T5V9InaYo-RZSWioB8CpkDFksXiDE7-HYArBU6g?e=dLtYwf) to obtain all trained models for PASCAL-5<sup>i</sup> and COCO-20<sup>i</sup>.
 
 ## Commands
 
