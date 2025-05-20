@@ -44,7 +44,7 @@ The directory structure is:
 ## Models
 
 - Download the trained SAM 2 models (`sam2_hiera_small`, `sam2_hiera_base_plus`, `sam2_hiera_large`) from [the official SAM 2 repository](https://github.com/facebookresearch/sam2?tab=readme-ov-file#sam-2-checkpoints) and put them into the `pretrained/` directory.
-- Download [exp.tar.gz](https://entuedu-my.sharepoint.com/:u:/g/personal/qianxion001_e_ntu_edu_sg/ERD85t8T5V9InaYo-RZSWioB8CpkDFksXiDE7-HYArBU6g?e=dLtYwf) to obtain all trained models for PASCAL-5<sup>i</sup> and COCO-20<sup>i</sup>.
+- Download [exp.zip](https://entuedu-my.sharepoint.com/:u:/g/personal/qianxion001_e_ntu_edu_sg/ERD85t8T5V9InaYo-RZSWioB8CpkDFksXiDE7-HYArBU6g?e=dLtYwf) to obtain all trained models for PASCAL-5<sup>i</sup> and COCO-20<sup>i</sup>.
 
 ## Commands
 
